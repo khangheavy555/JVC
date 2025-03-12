@@ -3,53 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Preview</title>
-    <style>
-        #image {
-            width: 300px;
-            height: 200px;
-            border: 2px solid black;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background-color: lightgray;
-            background-size: cover;
-            background-position: center;
-        }
-        .preview {
-            width: 100px;
-            height: 100px;
-            margin: 10px;
-            cursor: pointer;
-        }
-    </style>
+    <title>Interactive Photo Gallery</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <div id="image">Hover over an image below to display here.</div>
+    <h1>Interactive Photo Gallery</h1>
 
-    <img class="preview" src="https://via.placeholder.com/100" alt="Image 1" onmouseover="upDate(this)" onmouseout="undo()">
-    <img class="preview" src="https://via.placeholder.com/100/ff0000" alt="Image 2" onmouseover="upDate(this)" onmouseout="undo()">
-    <img class="preview" src="https://via.placeholder.com/100/00ff00" alt="Image 3" onmouseover="upDate(this)" onmouseout="undo()">
+    <div id="gallery">
+        <img src="Beautiful Mountain.png" alt="Beautiful Mountain" tabindex="0">
+        <img src="Sunset.jpg" alt="Sunset Over Beach" tabindex="0">
+        <img src="City Skyline.webp" alt="City Skyline at Night" tabindex="0">
+        <img src="Forest Pathway.jpg" alt="Forest Pathway" tabindex="0">
+        <img src="Snowy.jpg" alt="Snowy Landscape" tabindex="0">
+        <img src="Flower Garden.jpg" alt="Flower Garden" tabindex="0">
+    </div>
 
-    <script>
-        function upDate(previewPic) {
-            console.log("Event triggered!");
-            console.log("Source:", previewPic.src);
-            console.log("Alt Text:", previewPic.alt);
-
-            let mainImage = document.getElementById("image");
-            mainImage.style.backgroundImage = `url(${previewPic.src})`;
-            mainImage.innerHTML = previewPic.alt;
-        }
-
-        function undo() {
-            let mainImage = document.getElementById("image");
-            mainImage.style.backgroundImage = "url('')";
-            mainImage.innerHTML = "Hover over an image below to display here.";
-        }
-    </script>
-
+    <script src="script.js"></script>
 </body>
 </html>
