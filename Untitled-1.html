@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Preview</title>
+    <style>
+        #image {
+            width: 300px;
+            height: 200px;
+            border: 2px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: lightgray;
+            background-size: cover;
+            background-position: center;
+        }
+        .preview {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="image">Hover over an image below to display here.</div>
+
+    <img class="preview" src="https://via.placeholder.com/100" alt="Image 1" onmouseover="upDate(this)" onmouseout="undo()">
+    <img class="preview" src="https://via.placeholder.com/100/ff0000" alt="Image 2" onmouseover="upDate(this)" onmouseout="undo()">
+    <img class="preview" src="https://via.placeholder.com/100/00ff00" alt="Image 3" onmouseover="upDate(this)" onmouseout="undo()">
+
+    <script>
+        function upDate(previewPic) {
+            console.log("Event triggered!");
+            console.log("Source:", previewPic.src);
+            console.log("Alt Text:", previewPic.alt);
+
+            let mainImage = document.getElementById("image");
+            mainImage.style.backgroundImage = `url(${previewPic.src})`;
+            mainImage.innerHTML = previewPic.alt;
+        }
+
+        function undo() {
+            let mainImage = document.getElementById("image");
+            mainImage.style.backgroundImage = "url('')";
+            mainImage.innerHTML = "Hover over an image below to display here.";
+        }
+    </script>
+
+</body>
+</html>
